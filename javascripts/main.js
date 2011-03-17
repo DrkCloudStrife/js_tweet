@@ -8,6 +8,7 @@ $(document).ready(function(){
 function fetchTweets(username){
   if (typeof username  == "undefined" || username == "") { username = "DrkStrife" };
   
+  $("#tweets").html(""); // makes sure old records (if any) get removed
   $.getJSON('http://api.twitter.com/1/statuses/user_timeline.json?screen_name='+ username+'&callback=?', function(json) { //get information about the user
     for(var x in json){
      $('#tweets').append("<p>"+json[x].text+"</p>"); 
@@ -19,6 +20,7 @@ function fetchTweets(username){
 function fetchRepos(username) {
   if (typeof username == "undefined" || username == "") { username = "marka2g"};
   
+  $("#repos").html(""); // makes sure old records (if any) get removed
   $.getJSON('http://github.com/api/v1/json/'+ username+'?callback=?', function(json) { //get information about the user
     for(var x in json['user']['repositories']){
      $('#repos').append("<p><a href=\""+json['user']['repositories'][x].url+"\">"+json['user']['repositories'][x].name+"</a></p>"); 
