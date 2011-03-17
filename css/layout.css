@@ -1,9 +1,10 @@
 /* Layout for desktop version */
+body { font:normal 14px Arial; }
 
-body {
-
-}
-
+#tweets,
+#repos { margin:30px 0px 0px; }
+#tweets p,
+#repos p { margin:0px 0px 10px; color: #2C2C2C; }
 
 /* Layout for mobile version */
 
