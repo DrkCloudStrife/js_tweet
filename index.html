@@ -29,18 +29,21 @@
 
 
 <body>
-
 <div class="container">
   <div class="row">
     <div class="sixcol">
       <h2>Twitter Tweets</h2>
+      <label for="twitter_username">Twitter Username:</label>
+      <input type="text" val="" id="twitter_username"/>
+      <a href="javascript:void(0);" onclick="fetchTweets($('#twitter_username').val());">fetch tweets</a>
       <div id="tweets"></div>
-      <a href="javascript:void(0);" onclick="fetchTweets();">fetch tweets</a>
     </div>
     <div class="sixcol last">
       <h2>Git Repos</h2>
+      <label for="git_username">Github Username:</label>
+      <input type="text" val="" id="git_username"/>
+      <a href="javascript:void(0);" onclick="fetchRepos($('#git_username').val());">fetch repos</a>
       <div id="repos"></div>
-      <a href="javascript:void(0);" onclick="fetchRepos();">fetch tweets</a>
     </div>
   </div>
 </div>

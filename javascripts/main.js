@@ -1,17 +1,16 @@
 // jQuery documents
 $(document).ready(function(){
-  fetchRepos();
+  // fetchRepos();
   // fetchTweets();
 });
 
 // JS Functions
 function fetchTweets(username){
-  if (typeof username  == "undefined" || username == null) { username = "DrkStrife" };
-  
+  if (typeof username  == "undefined" || username == "") { username = "DrkStrife" };
   $.ajax({
       url: "http://api.twitter.com/1/statuses/user_timeline.json?screen_name=" + username,
       type: "GET",
-      dataType: "text",
+      dataType: "JSON",
       success: function(dat){
         var data = $.parseJSON($(dat.responseText).text().trim().replace(new RegExp("\\n|\\r|\\t","g"),''));
         $("#tweets").html(data);
@@ -24,7 +23,7 @@ function fetchTweets(username){
 }
 
 function fetchRepos(username) {
-  if (typeof username == "undefined" || username == null) { username = "marka2g"};
+  if (typeof username == "undefined" || username == "") { username = "marka2g"};
   
   $.ajax({
     url: "http://github.com/api/v1/json/" + username,
